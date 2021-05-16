@@ -2,6 +2,8 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Home } from '../views/Home';
 import { Other } from '../views/Other';
+import { Animation101 } from '../views/Animation101';
+import { Animation102 } from '../views/Animation102';
 
 const Stack = createStackNavigator();
 
@@ -13,6 +15,8 @@ export const StackNavigation = () => {
             }}
         >
             <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Animation101" component={Animation101} />
+            <Stack.Screen name="Animation102" component={Animation102} />
             <Stack.Screen name="Other" component={Other} />
         </Stack.Navigator>
     );
