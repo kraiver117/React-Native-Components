@@ -2,21 +2,8 @@ import React from 'react';
 import { FlatList, View, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlatListMenuItem } from '../components/FlatListMenuItem';
-import { MenuItem } from '../interfaces/flatListMenuItem-Interface';
 import { styles } from '../theme/appTheme';
-
-const menuItems: MenuItem[] = [
-    {
-        name: 'Animation 101',
-        icon: 'cube-outline',
-        component: 'Animation101'
-    },
-    {
-        name: 'Animation 102',
-        icon: 'albums-outline',
-        component: 'Animation102'
-    }
-]
+import { menuItems } from '../data/menuItems';
 
 export const Home = () => {
     const { top } = useSafeAreaInsets();

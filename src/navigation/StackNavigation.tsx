@@ -4,6 +4,7 @@ import { Home } from '../views/Home';
 import { Other } from '../views/Other';
 import { Animation101 } from '../views/Animation101';
 import { Animation102 } from '../views/Animation102';
+import { SwitchScreeen } from '../views/SwitchScreen';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ export const StackNavigation = () => {
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Animation101" component={Animation101} />
             <Stack.Screen name="Animation102" component={Animation102} />
+            <Stack.Screen name="Switch" component={SwitchScreeen} />
             <Stack.Screen name="Other" component={Other} />
         </Stack.Navigator>
     );
