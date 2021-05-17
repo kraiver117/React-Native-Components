@@ -12,7 +12,8 @@ export const Home = () => {
                 style={{
                     borderBottomWidth: 1,
                     opacity: 0.4,
-                    marginVertical: 8
+                    marginVertical: 8,
+                    borderColor: '#5856D6'
                 }}
             />
         )
