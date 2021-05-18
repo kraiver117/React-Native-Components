@@ -15,5 +15,10 @@ export const menuItems: MenuItem[] = [
         name: 'Switches',
         icon: 'toggle-outline',
         component: 'Switch'
+    },
+    {
+        name: 'Alerts',
+        icon: 'alert-circle-outline',
+        component: 'Alert'
     }
 ]
