@@ -14,8 +14,6 @@ export const TextInputScreen = () => {
         isSubscribed: false
     });
 
-    console.log(isSubscribed);
-
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
