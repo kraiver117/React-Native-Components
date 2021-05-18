@@ -23,12 +23,29 @@ export const AlertScreen = () => {
         );
     }
 
+    //Just for iOS//
+    const showPrompt = () => {
+        Alert.prompt(
+            "Título",
+            "Mensaje prompt",
+            (value: string) => console.log('info: ', value),
+            'plain-text',
+            'Hola mundo',
+            'number-pad'
+        );
+    }
+
     return (
         <View style={ styles.globalMargin }>
             <HeaderTitle title='Alerts' />
             <Button 
                 title='Mostrar Alerta'
                 onPress={ showAlert }
+            />
+            {/* Just for iOS */}
+            <Button 
+                title='Mostrar Prompt'
+                onPress={ showPrompt }
             />
         </View>
     )
