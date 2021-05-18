@@ -1,29 +1,28 @@
-import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, KeyboardAvoidingView, Platform, ScrollView, Keyboard } from 'react-native';
+import React from 'react';
+import { View, TextInput, StyleSheet, KeyboardAvoidingView, Platform, ScrollView, Keyboard, Text } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { HeaderTitle } from '../components/HeaderTitle';
 import { styles } from '../theme/appTheme';
+import { useForm } from '../hooks/useForm';
+import { CustomSwitch } from '../components/CustomSwitch';
 
 export const TextInputScreen = () => {
-    const [form, setForm] = useState({
+    const { form, onChange, isSubscribed } = useForm({
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        isSubscribed: false
     });
 
-    const onChange = (value: string, field: string) => {
-        setForm({
-            ...form,
-            [field]: value
-        })
-    }
+    console.log(isSubscribed);
 
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
             <ScrollView>
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                {/* Issues with radio button */}
+                {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}> */}
                     <View style={ styles.globalMargin }>
                         <HeaderTitle title='Text Input' />
                         <TextInput 
@@ -41,6 +40,10 @@ export const TextInputScreen = () => {
                             onChangeText={ (value) => onChange(value, 'email') }
                             keyboardType='email-address'
                         />
+                        <View style={ stylesScreen.switchRow }>
+                            <Text style={ stylesScreen.switchText }>Subscribed</Text>
+                            <CustomSwitch isOn={ isSubscribed } onChange={ (value) => onChange( value, 'isSubscribed' ) } />
+                        </View>
                         <HeaderTitle title={JSON.stringify(form, null, 3)} />
                         <HeaderTitle title={JSON.stringify(form, null, 3)} />
                         <TextInput 
@@ -52,7 +55,7 @@ export const TextInputScreen = () => {
                         />
                         <View style={{ height: 100 }} />
                     </View>
-                </TouchableWithoutFeedback>
+                {/* </TouchableWithoutFeedback> */}
             </ScrollView>
         </KeyboardAvoidingView>
     )
@@ -66,5 +69,14 @@ const stylesScreen = StyleSheet.create({
         paddingHorizontal: 15,
         borderRadius: 10,
         marginVertical: 10
+    },
+    switchText: {
+        fontSize: 25
+    },
+    switchRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginVertical: 5
     }
 });
