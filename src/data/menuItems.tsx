@@ -20,5 +20,10 @@ export const menuItems: MenuItem[] = [
         name: 'Alerts',
         icon: 'alert-circle-outline',
         component: 'Alert'
+    },
+    {
+        name: 'Text Input',
+        icon: 'document-text-outline',
+        component: 'TextInput'
     }
 ]
