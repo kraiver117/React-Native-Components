@@ -25,5 +25,10 @@ export const menuItems: MenuItem[] = [
         name: 'Text Input',
         icon: 'document-text-outline',
         component: 'TextInput'
+    },
+    {
+        name: 'Pull to Refresh',
+        icon: 'refresh-outline',
+        component: 'PullToRefresh'
     }
 ]
