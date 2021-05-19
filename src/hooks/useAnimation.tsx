@@ -5,15 +5,15 @@ export const useAnimation = () => {
     const opacity = useRef(new Animated.Value(0)).current;
     const position = useRef(new Animated.Value(0)).current;
 
-    const fadeIn = () => {
+    const fadeIn = (duration: number = 500) => {
         Animated.timing(
             opacity,
             {
                 toValue: 1,
-                duration: 2000,
+                duration: duration,
                 useNativeDriver: true
             }
-        ).start( () => console.log('Animacion termino') );
+        ).start();
     }
 
     const fadeOut = () => {
