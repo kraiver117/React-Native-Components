@@ -20,17 +20,28 @@ export const ModalScreen = () => {
                 <View style={{ 
                     flex: 1, 
                     backgroundColor: 'rgba(0,0,0,0.3)',
-                    // width: 100,
-                    // height:100
+                    justifyContent: 'center',
+                    alignItems: 'center'
                 }}>
                     {/* Modal Content */}
                     <View
                         style={{
-                            backgroundColor: 'white'
+                            backgroundColor: 'white',
+                            width: 200,
+                            height: 200,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            shadowOffset: {
+                                width: 0,
+                                height: 10
+                            },
+                            shadowOpacity: 0.25,
+                            elevation: 10,
+                            borderRadius: 5
                         }}
                     >
-                        <HeaderTitle title='Modal'/>
-                        <Text>Modal Body</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Modal</Text>
+                        <Text style={{ fontSize: 16, fontWeight: '300', marginBottom: 20 }}>Modal Body</Text>
                         <Button 
                             title='Cerrar'
                             onPress={ () => setIsVisible(false) }
