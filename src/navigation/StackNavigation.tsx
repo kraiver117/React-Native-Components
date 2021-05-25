@@ -21,7 +21,7 @@ export const StackNavigation = () => {
             screenOptions={{
                 headerShown: false,
                 cardStyle: {
-                    backgroundColor: 'white'
+                    // backgroundColor: 'white'
                 }
             }}
         >
