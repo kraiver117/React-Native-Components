@@ -1,7 +1,8 @@
-import React, { createContext } from "react";
+import React, { createContext, useReducer } from "react";
+import { themeReducer, ThemeState, ligthTheme } from "./themeReducer";
 
 interface ThemeContextProps {
-    theme: any; //TODO
+    theme: ThemeState;
     setDarkTheme: () => void;
     setLightTheme: () => void;
 }
@@ -9,7 +10,7 @@ interface ThemeContextProps {
 export const ThemeContext = createContext({} as ThemeContextProps);
 
 export const ThemeProvider = ({ children }: any) => {
-    const theme = {};
+    const [theme, dispatch] = useReducer(themeReducer, ligthTheme); //TODO: Leer el tema global del dispositivo
 
     const setDarkTheme = () => {
         console.log('setDarkTheme');

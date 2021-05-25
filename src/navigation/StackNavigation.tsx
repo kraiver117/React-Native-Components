@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
 import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+import { ThemeContext } from '../context/themeContext/ThemeContext';
+
 import { Home } from '../views/Home';
 import { Other } from '../views/Other';
 import { Animation101 } from '../views/Animation101';
@@ -13,13 +18,16 @@ import { ModalScreen } from '../views/ModalScreen';
 import { InfiniteScrollScreen } from '../views/InfiniteScrollScreen';
 import { SlidesScreen } from '../views/SlidesScreen';
 import { ChangeThemeScreen } from '../views/ChangeThemeScreen';
-import { NavigationContainer } from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
 export const StackNavigation = () => {
+    const { theme } = useContext(ThemeContext);
+
     return (
-        <NavigationContainer>
+        <NavigationContainer
+            theme={ theme }
+        >
             <Stack.Navigator
                 screenOptions={{
                     headerShown: false,
