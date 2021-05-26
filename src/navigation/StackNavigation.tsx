@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { View } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -25,31 +26,33 @@ export const StackNavigation = () => {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <NavigationContainer
-            theme={ theme }
-        >
-            <Stack.Navigator
-                screenOptions={{
-                    headerShown: false,
-                    cardStyle: {
-                        // backgroundColor: 'white'
-                    }
-                }}
+        <View style={{ backgroundColor: theme.colors.background, flex: 1 }}>
+            <NavigationContainer
+                theme={ theme }
             >
-                <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="Animation101" component={Animation101} />
-                <Stack.Screen name="Animation102" component={Animation102} />
-                <Stack.Screen name="Switch" component={SwitchScreeen} />
-                <Stack.Screen name="Alert" component={AlertScreen} />
-                <Stack.Screen name="TextInput" component={TextInputScreen} />
-                <Stack.Screen name="PullToRefresh" component={PullToRefreshScreen} />
-                <Stack.Screen name="SectionList" component={SectionListScreen} />
-                <Stack.Screen name="Modal" component={ModalScreen} />
-                <Stack.Screen name="InfiniteScroll" component={InfiniteScrollScreen} />
-                <Stack.Screen name="Slides" component={SlidesScreen} />
-                <Stack.Screen name="ChangeTheme" component={ChangeThemeScreen} />
-                <Stack.Screen name="Other" component={Other} />
-            </Stack.Navigator>
-        </NavigationContainer>
+                <Stack.Navigator
+                    screenOptions={{
+                        headerShown: false,
+                        cardStyle: {
+                            // backgroundColor: 'white'
+                        }
+                    }}
+                >
+                    <Stack.Screen name="Home" component={Home} />
+                    <Stack.Screen name="Animation101" component={Animation101} />
+                    <Stack.Screen name="Animation102" component={Animation102} />
+                    <Stack.Screen name="Switch" component={SwitchScreeen} />
+                    <Stack.Screen name="Alert" component={AlertScreen} />
+                    <Stack.Screen name="TextInput" component={TextInputScreen} />
+                    <Stack.Screen name="PullToRefresh" component={PullToRefreshScreen} />
+                    <Stack.Screen name="SectionList" component={SectionListScreen} />
+                    <Stack.Screen name="Modal" component={ModalScreen} />
+                    <Stack.Screen name="InfiniteScroll" component={InfiniteScrollScreen} />
+                    <Stack.Screen name="Slides" component={SlidesScreen} />
+                    <Stack.Screen name="ChangeTheme" component={ChangeThemeScreen} />
+                    <Stack.Screen name="Other" component={Other} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </View>
     );
 }
