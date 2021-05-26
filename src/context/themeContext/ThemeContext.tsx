@@ -13,12 +13,11 @@ export const ThemeProvider = ({ children }: any) => {
     const [theme, dispatch] = useReducer(themeReducer, ligthTheme); //TODO: Leer el tema global del dispositivo
 
     const setDarkTheme = () => {
-        console.log('setDarkTheme');
+        dispatch({ type: 'set_dark_theme'});
     }
 
     const setLightTheme = () => {
-        console.log('setLightTheme');
-        
+        dispatch({ type: 'set_light_theme'});
     }
     
     return (
