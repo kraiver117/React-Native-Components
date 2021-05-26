@@ -1,10 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { Animated, Dimensions, Image, ImageSourcePropType, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useAnimation } from '../hooks/useAnimation';
 import { StackScreenProps } from '@react-navigation/stack';
+import { ThemeContext } from '../context/themeContext/ThemeContext';
 
 const { width: screenWidth } = Dimensions.get('screen');
 
@@ -35,6 +36,7 @@ const items: Slide[] = [
 interface Props extends StackScreenProps<any, any> {};
 
 export const SlidesScreen = ({ navigation }: Props) => {
+	const { theme: { colors } } = useContext(ThemeContext);
 	const { opacity, fadeIn } = useAnimation();
 
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -43,7 +45,7 @@ export const SlidesScreen = ({ navigation }: Props) => {
 	const renderItem = ( item: Slide ) => (
 		<View style={{
 			flex: 1,
-			backgroundColor: 'white',
+			backgroundColor: colors.background,
 			borderRadius: 5,
 			padding: 40,
 			justifyContent: 'center'
@@ -56,8 +58,8 @@ export const SlidesScreen = ({ navigation }: Props) => {
 					resizeMode: 'center'
 				}}
 			/>
-			<Text style={ styles.title }>{ item.title }</Text>
-			<Text style={ styles.subTitle }>{ item.desc }</Text>
+			<Text style={{ ...styles.title, color: colors.primary }}>{ item.title }</Text>
+			<Text style={{ ...styles.subTitle, color: colors.text }}>{ item.desc }</Text>
 		</View>
 	)
 
@@ -95,7 +97,7 @@ export const SlidesScreen = ({ navigation }: Props) => {
 						width: 8,
 						height: 8,
 						borderRadius: 10,
-						backgroundColor: '#5856D6'
+						backgroundColor: colors.primary
 					}}
 				/>
 				<Animated.View style={{
@@ -103,7 +105,7 @@ export const SlidesScreen = ({ navigation }: Props) => {
 				}}>
 					<TouchableOpacity style={{
 						flexDirection: 'row',
-						backgroundColor: '#5856D6',
+						backgroundColor: colors.primary,
 						width: 140,
 						height: 50,
 						borderRadius: 10,
